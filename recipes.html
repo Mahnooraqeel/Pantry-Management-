@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍽️ Smart Pantry - Recipes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: white;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1e1e1e;
+            padding: 20px 40px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff8c42;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links li a:hover {
+            color: #ff8c42;
+        }
+        section {
+            padding: 40px;
+            text-align: center;
+        }
+        #category-list {
+            margin-top: 20px;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .category {
+            padding: 10px;
+            border-bottom: 1px solid #333;
+        }
+        footer {
+            background: #1e1e1e;
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🍽️ Smart Pantry</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="add.html">Add Item</a></li>
+            <li><a href="remove.html">Remove Item</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="restock.html">Restock Alerts</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Your Available Recipes</h2>
+        <p>Recipes you can make right now with your current pantry items.</p>
+        <button type="button" class="view-recipes-btn" id="view-recipes-btn">Refresh Recipes</button>
+
+        <h3>Recipes that can be made:</h3>
+        <div id="recipe-list"></div>
+    </section>
+
+    <footer>
+        <p>© 2025 Smart Pantry. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const viewRecipesBtn = document.getElementById('view-recipes-btn');
+            if (viewRecipesBtn) {
+                viewRecipesBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    loadRecipes();
+                });
+            }
+            loadRecipes();
+        });
+    </script>
+</body>
+</html>
